@@ -99,7 +99,6 @@
             </Border>
 
             <ListView ItemsSource="{Binding Contacts}" 
-                      SelectedItem="{Binding SelectedContact}"
                       Grid.Row="1"
                       Background="Transparent"
                       BorderThickness="0"
@@ -113,7 +112,7 @@
                                  Margin="18,0,5,0">
                     <Ellipse.Fill>
                         <ImageBrush ImageSource="{Binding PFP_Source}"
-                                            RenderOptions.BitmapScalingMode="Fant"/>
+                                    RenderOptions.BitmapScalingMode="HighQuality"/>
                     </Ellipse.Fill>
                 </Ellipse>
 
@@ -153,7 +152,7 @@
 
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="19*"/>
+                <ColumnDefinition Width="19"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <ListView ItemsSource="{Binding Messages}"

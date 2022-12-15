@@ -44,7 +44,7 @@ namespace ChatServer
                         case 5:
                             var msg = _packReader.ReadMsg();
                             Console.WriteLine($"[{DateTime.Now}] Client with username: {Username} has sent the message : {msg}");
-                            Program.SendMessage($"[{DateTime.Now}] {Username}: {msg}");
+                            Program.SendMessage($"[{DateTime.Now}] {Username}: {msg}", );
                             break;
 
                         default:

@@ -14,7 +14,7 @@ namespace ChatServer
         static void Main(string[] args)
         {
             _Users = new List<Client>();
-            _Listener = new TcpListener(IPAddress.Parse("192.168.1.105"), 56853);
+            _Listener = new TcpListener(IPAddress.Parse("192.168.0.104"), 8000);
             _Listener.Start();
 
             while (true)
@@ -43,7 +43,7 @@ namespace ChatServer
             }
         }
 
-        public static void SendMessage(string message, string UID = null)
+        public static void SendMessage(string message, string UID)
         {
             var TargetClient = _Users.Find(x => x.UID.ToString() == UID);
             var msgPacket = new PacketBuilder();
@@ -65,11 +65,10 @@ namespace ChatServer
                     logPacket.WriteOpCode(10);
                     logPacket.WriteMsg(uid);
                     user.ClientSocket.Client.Send(logPacket.GetPacketBytes());
+                    SendMessage($"[{DateTime.Now}] {disconnectedUser.Username} disconnected");
 
                 }
             }
-
-            SendMessage($"[{DateTime.Now}] {disconnectedUser.Username} disconnected");
         }
     }
 }

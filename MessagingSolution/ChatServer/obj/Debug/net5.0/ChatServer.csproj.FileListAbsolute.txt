@@ -19,7 +19,6 @@ C:\Users\user\Documents\Programming\C#\MessagingSolution\Rooms-ChattingApp\Messa
 C:\Users\user\Documents\Programming\C#\MessagingSolution\Rooms-ChattingApp\MessagingSolution\ChatServer\bin\Debug\net5.0\ChatServer.runtimeconfig.json
 C:\Users\user\Documents\Programming\C#\MessagingSolution\Rooms-ChattingApp\MessagingSolution\ChatServer\bin\Debug\net5.0\ChatServer.runtimeconfig.dev.json
 C:\Users\user\Documents\Programming\C#\MessagingSolution\Rooms-ChattingApp\MessagingSolution\ChatServer\bin\Debug\net5.0\ChatServer.dll
-C:\Users\user\Documents\Programming\C#\MessagingSolution\Rooms-ChattingApp\MessagingSolution\ChatServer\bin\Debug\net5.0\ref\ChatServer.dll
 C:\Users\user\Documents\Programming\C#\MessagingSolution\Rooms-ChattingApp\MessagingSolution\ChatServer\bin\Debug\net5.0\ChatServer.pdb
 C:\Users\user\Documents\Programming\C#\MessagingSolution\Rooms-ChattingApp\MessagingSolution\ChatServer\obj\Debug\net5.0\ChatServer.csproj.AssemblyReference.cache
 C:\Users\user\Documents\Programming\C#\MessagingSolution\Rooms-ChattingApp\MessagingSolution\ChatServer\obj\Debug\net5.0\ChatServer.GeneratedMSBuildEditorConfig.editorconfig
@@ -30,3 +29,4 @@ C:\Users\user\Documents\Programming\C#\MessagingSolution\Rooms-ChattingApp\Messa
 C:\Users\user\Documents\Programming\C#\MessagingSolution\Rooms-ChattingApp\MessagingSolution\ChatServer\obj\Debug\net5.0\ref\ChatServer.dll
 C:\Users\user\Documents\Programming\C#\MessagingSolution\Rooms-ChattingApp\MessagingSolution\ChatServer\obj\Debug\net5.0\ChatServer.pdb
 C:\Users\user\Documents\Programming\C#\MessagingSolution\Rooms-ChattingApp\MessagingSolution\ChatServer\obj\Debug\net5.0\ChatServer.genruntimeconfig.cache
+C:\Users\user\Documents\Programming\C#\MessagingSolution\Rooms-ChattingApp\MessagingSolution\ChatServer\obj\Debug\net5.0\refint\ChatServer.dll

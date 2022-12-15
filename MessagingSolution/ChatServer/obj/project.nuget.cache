@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "D35SqD0ct6MWnKdamF3ivooJYtJjscTM7mkTOfPp7DOL+Z7n1+zQcb1NcChSuNoUc1Xq3fmx4n55ge2wqFJ/9A==",
+  "dgSpecHash": "Q+mTOvAJBe1ol1X4uUzXPzYGpR21VYjghAqtWyvUTX7T9s/bY+q5rNtB1CWVzbZ/qOoOdGwyJvByDLpvIWU3mg==",
   "success": true,
   "projectFilePath": "C:\\Users\\user\\Documents\\Programming\\C#\\MessagingSolution\\Rooms-ChattingApp\\MessagingSolution\\ChatServer\\ChatServer.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.22621.28\\microsoft.windows.sdk.net.ref.10.0.22621.28.nupkg.sha512"
+  ],
   "logs": []
 }

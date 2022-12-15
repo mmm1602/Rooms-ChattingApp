@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace ChatClient.MVVM.ViewModel
 {
@@ -69,6 +70,9 @@ namespace ChatClient.MVVM.ViewModel
         private readonly Server _server;
         public MainViewModel()
         {
+
+            PFP_Source = "https://cdn.mos.cms.futurecdn.net/yCPyoZDQBBcXikqxkeW2jJ-1024-80.jpg";
+
             Users = new ObservableCollection<UserModel>();
             Messages = new ObservableCollection<MessageModel>();
             Contacts = new ObservableCollection<ContactModel>();
@@ -80,6 +84,14 @@ namespace ChatClient.MVVM.ViewModel
             ConnectToServerCommand = new RelayCommand(o => _server.ConnectToServer(Username), o => !string.IsNullOrEmpty(Username));
 
 
+            Contacts.Add(
+                new ContactModel
+                {
+                    Username = "TestContact",
+                    ImageSource = "https://cdn.mos.cms.futurecdn.net/yCPyoZDQBBcXikqxkeW2jJ-1024-80.jpg",
+                    LastMessage = "Hey sucker"
+                }
+                );
             SendCommand = new RelayCommand(o =>
             {
                 SendMessageCommand = new RelayCommand(o => _server.SendMsgToServer(Message), o => !string.IsNullOrEmpty(Message));
@@ -105,7 +117,7 @@ namespace ChatClient.MVVM.ViewModel
                 {
                     Username = "DAMN",
                     ImageSource = "https://avatarfiles.alphacoders.com/293/293215.jpg",
-                    Message = "Hi :)",
+                    Message = msg,
                     UsernameColor = "#00FF00",
                     IsNative = false,
                     FirstMessage = true,

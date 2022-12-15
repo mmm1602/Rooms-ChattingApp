@@ -25,7 +25,7 @@ namespace ChatClient.Net
             {
                 try
                 {
-                    _client.Connect("192.168.1.105", 56853);
+                    _client.Connect("192.168.0.104", 8000);
                     PackReader = new PacketReader(_client.GetStream());
 
                     if (!string.IsNullOrEmpty(Username))
@@ -69,7 +69,7 @@ namespace ChatClient.Net
                             break;
 
                         default:
-                            Console.WriteLine("Of Course");
+                            Console.WriteLine($"OpCode [{opCode}] is not defined");
                             break;
                     }
                     
