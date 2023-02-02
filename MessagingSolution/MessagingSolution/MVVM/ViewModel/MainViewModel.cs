@@ -6,6 +6,8 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net.Sockets;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -65,6 +67,7 @@ namespace ChatClient.MVVM.ViewModel
         public RelayCommand SendMessageCommand { get; set; }
         public RelayCommand SendCommand { get; set; }
         public RelayCommand SetPictureCommand { get; set; }
+        public RelayCommand AddContactCommand { get; set; }
 
 
         private readonly Server _server;
@@ -88,8 +91,19 @@ namespace ChatClient.MVVM.ViewModel
                 new ContactModel
                 {
                     Username = "TestContact",
+                    ImageSource = "https://cdn.mos.cms.futurecdn.net/yCPyoZDQBBcXikqxkeW2jJ-1024-80.jpg"
+                }
+                );
+            Messages.Add(
+                new MessageModel
+                {
+                    Username = "TestContact",
                     ImageSource = "https://cdn.mos.cms.futurecdn.net/yCPyoZDQBBcXikqxkeW2jJ-1024-80.jpg",
-                    LastMessage = "Hey sucker"
+                    Message = "Whats Up?",
+                    UsernameColor = "#00FF00",
+                    IsNative = false,
+                    FirstMessage = true,
+                    Time = DateTime.Now
                 }
                 );
             SendCommand = new RelayCommand(o =>
@@ -117,7 +131,7 @@ namespace ChatClient.MVVM.ViewModel
                 {
                     Username = "DAMN",
                     ImageSource = "https://avatarfiles.alphacoders.com/293/293215.jpg",
-                    Message = msg,
+                    Message = "Hello",
                     UsernameColor = "#00FF00",
                     IsNative = false,
                     FirstMessage = true,
@@ -138,6 +152,18 @@ namespace ChatClient.MVVM.ViewModel
             {
                 Application.Current.Dispatcher.Invoke(() => Users.Add(user));
             }
+        }
+        public static string GetLocalIPAddress()
+        {
+            var host = Dns.GetHostEntry(Dns.GetHostName());
+            foreach (var ip in host.AddressList)
+            {
+                if (ip.AddressFamily == AddressFamily.InterNetwork)
+                {
+                    return ip.ToString();
+                }
+            }
+            throw new Exception("No network adapters with an IPv4 address in the system!");
         }
     }
 }

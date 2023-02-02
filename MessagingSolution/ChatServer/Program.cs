@@ -14,7 +14,7 @@ namespace ChatServer
         static void Main(string[] args)
         {
             _Users = new List<Client>();
-            _Listener = new TcpListener(IPAddress.Parse("192.168.0.104"), 8000);
+            _Listener = new TcpListener(IPAddress.Parse(GetLocalIPAddress()), 8000);
             _Listener.Start();
 
             while (true)
@@ -65,10 +65,21 @@ namespace ChatServer
                     logPacket.WriteOpCode(10);
                     logPacket.WriteMsg(uid);
                     user.ClientSocket.Client.Send(logPacket.GetPacketBytes());
-                    SendMessage($"[{DateTime.Now}] {disconnectedUser.Username} disconnected");
-
                 }
             }
+            Console.WriteLine($"[{DateTime.Now}] {disconnectedUser.Username} disconnected");
+        }
+        public static string GetLocalIPAddress()
+        {
+            var host = Dns.GetHostEntry(Dns.GetHostName());
+            foreach (var ip in host.AddressList)
+            {
+                if (ip.AddressFamily == AddressFamily.InterNetwork)
+                {
+                    return ip.ToString();
+                }
+            }
+            throw new Exception("No network adapters with an IPv4 address in the system!");
         }
     }
 }

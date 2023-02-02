@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using System.Net.Sockets;
 using System.Threading.Tasks;
 using ChatClient.Net.IO;
@@ -14,10 +15,21 @@ namespace ChatClient.Net
         public event Action MsgRecievedEvent;
         public event Action DisconnectedEvent;
 
+        private string ip_address;
+
+        public string Ip_address
+        {
+            get { return ip_address; }
+            set { ip_address = value; }
+        }
+
+
 
         public Server()
         {
             _client = new TcpClient();
+            Ip_address = GetLocalIPAddress();
+
         }
         public void ConnectToServer(string Username)
         {
@@ -25,7 +37,7 @@ namespace ChatClient.Net
             {
                 try
                 {
-                    _client.Connect("192.168.0.104", 8000);
+                    _client.Connect(GetLocalIPAddress(), 8000);
                     PackReader = new PacketReader(_client.GetStream());
 
                     if (!string.IsNullOrEmpty(Username))
@@ -84,6 +96,19 @@ namespace ChatClient.Net
             msgPacket.WriteOpCode(5);
             msgPacket.WriteMessage(message);
             _client.Client.Send(msgPacket.GetPacketBytes());
+        }
+
+        public string GetLocalIPAddress()
+        {
+            var host = Dns.GetHostEntry(Dns.GetHostName());
+            foreach (var ip in host.AddressList)
+            {
+                if (ip.AddressFamily == AddressFamily.InterNetwork)
+                {
+                    return ip.ToString();
+                }
+            }
+            throw new Exception("No network adapters with an IPv4 address in the system!");
         }
     }
 }

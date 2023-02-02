@@ -24,7 +24,7 @@
         <Grid DockPanel.Dock="Top" 
               Height="35" 
               HorizontalAlignment="Stretch"
-              Background="#343434"
+              Background="#252525"
               MouseDown="Border_MouseDown">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -76,7 +76,8 @@
         </Grid>
 
         <Grid DockPanel.Dock="Left" Width="250"
-              Background="#343434">
+              Background="#343434"
+              MinWidth="250">
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="60"/>
@@ -97,6 +98,17 @@
                        Margin="10,0,0,0"
                        Height="50"/>
             </Border>
+
+            <Button Height="30"
+                    Width="30"
+                    Background="Transparent"
+                    BorderThickness="0" Margin="208,15,12,15"
+                    Command="{Binding Add_Contact}">
+                <TextBlock Text="+"
+                        FontSize="20"
+                        Foreground="LightGray"
+                        Padding="0,0,0,2"/>
+            </Button>
 
             <ListView ItemsSource="{Binding Contacts}" 
                       Grid.Row="1"
@@ -150,7 +162,7 @@
 
         </Grid>
 
-        <Grid>
+        <Grid MaxWidth="700">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="19"/>
                 <ColumnDefinition/>
